@@ -28,7 +28,7 @@ CONFIG_HOST_OS_LINUX=y
 # CONFIG_TARGET_pistachio is not set
 # CONFIG_TARGET_mvebu is not set
 # CONFIG_TARGET_kirkwood is not set
-# CONFIG_TARGET_mediatek is not set
+CONFIG_TARGET_mediatek=y
 # CONFIG_TARGET_ramips is not set
 # CONFIG_TARGET_at91 is not set
 # CONFIG_TARGET_tegra is not set
@@ -36,7 +36,7 @@ CONFIG_HOST_OS_LINUX=y
 # CONFIG_TARGET_imx is not set
 # CONFIG_TARGET_octeontx is not set
 # CONFIG_TARGET_oxnas is not set
-CONFIG_TARGET_armvirt=y
+# CONFIG_TARGET_armvirt is not set
 # CONFIG_TARGET_ipq40xx is not set
 # CONFIG_TARGET_ipq60xx is not set
 # CONFIG_TARGET_ipq806x is not set
@@ -50,18 +50,27 @@ CONFIG_TARGET_armvirt=y
 # CONFIG_TARGET_uml is not set
 # CONFIG_TARGET_zynq is not set
 # CONFIG_TARGET_x86 is not set
-# CONFIG_TARGET_armvirt_32 is not set
-CONFIG_TARGET_armvirt_64=y
+# CONFIG_TARGET_mediatek_mt7622 is not set
+# CONFIG_TARGET_mediatek_mt7623 is not set
+# CONFIG_TARGET_mediatek_mt7629 is not set
+CONFIG_TARGET_mediatek_filogic=y
 # CONFIG_TARGET_MULTI_PROFILE is not set
-CONFIG_TARGET_armvirt_64_DEVICE_generic=y
+# CONFIG_TARGET_mediatek_filogic_DEVICE_asus_tuf-ax4200 is not set
+# CONFIG_TARGET_mediatek_filogic_DEVICE_bananapi_bpi-r3 is not set
+# CONFIG_TARGET_mediatek_filogic_DEVICE_mediatek_mt7986a-rfb is not set
+# CONFIG_TARGET_mediatek_filogic_DEVICE_mediatek_mt7986b-rfb is not set
+# CONFIG_TARGET_mediatek_filogic_DEVICE_tplink_tl-xdr4288 is not set
+# CONFIG_TARGET_mediatek_filogic_DEVICE_tplink_tl-xdr6086 is not set
+# CONFIG_TARGET_mediatek_filogic_DEVICE_tplink_tl-xdr6088 is not set
+CONFIG_TARGET_mediatek_filogic_DEVICE_xiaomi_redmi-router-ax6000=y
 CONFIG_HAS_SUBTARGETS=y
 CONFIG_HAS_DEVICES=y
-CONFIG_TARGET_BOARD="armvirt"
-CONFIG_TARGET_SUBTARGET="64"
-CONFIG_TARGET_PROFILE="DEVICE_generic"
-CONFIG_TARGET_ARCH_PACKAGES="aarch64_generic"
-CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=generic"
-CONFIG_CPU_TYPE="generic"
+CONFIG_TARGET_BOARD="mediatek"
+CONFIG_TARGET_SUBTARGET="filogic"
+CONFIG_TARGET_PROFILE="DEVICE_xiaomi_redmi-router-ax6000"
+CONFIG_TARGET_ARCH_PACKAGES="aarch64_cortex-a53"
+CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
+CONFIG_CPU_TYPE="cortex-a53"
 CONFIG_LINUX_5_15=y
 CONFIG_DEFAULT_base-files=y
 CONFIG_DEFAULT_block-mount=y
@@ -75,7 +84,6 @@ CONFIG_DEFAULT_ddns-scripts_dnspod=y
 CONFIG_DEFAULT_default-settings=y
 CONFIG_DEFAULT_dnsmasq-full=y
 CONFIG_DEFAULT_dropbear=y
-CONFIG_DEFAULT_e2fsprogs=y
 CONFIG_DEFAULT_firewall=y
 CONFIG_DEFAULT_fstools=y
 CONFIG_DEFAULT_ip-full=y
@@ -83,24 +91,17 @@ CONFIG_DEFAULT_ipset=y
 CONFIG_DEFAULT_iptables=y
 CONFIG_DEFAULT_iptables-mod-extra=y
 CONFIG_DEFAULT_iptables-mod-tproxy=y
-CONFIG_DEFAULT_kmod-amazon-ena=y
-CONFIG_DEFAULT_kmod-dwmac-imx=y
-CONFIG_DEFAULT_kmod-e1000e=y
-CONFIG_DEFAULT_kmod-fsl-dpaa2-net=y
-CONFIG_DEFAULT_kmod-fsl-fec=y
-CONFIG_DEFAULT_kmod-gpio-pca953x=y
-CONFIG_DEFAULT_kmod-i2c-mux-pca954x=y
+CONFIG_DEFAULT_iwinfo=y
+CONFIG_DEFAULT_kmod-crypto-hw-safexcel=y
+CONFIG_DEFAULT_kmod-gpio-button-hotplug=y
 CONFIG_DEFAULT_kmod-ipt-raw=y
-CONFIG_DEFAULT_kmod-mvpp2=y
+CONFIG_DEFAULT_kmod-leds-gpio=y
+CONFIG_DEFAULT_kmod-leds-ws2812b=y
+CONFIG_DEFAULT_kmod-mt7915e=y
+CONFIG_DEFAULT_kmod-mt7986-firmware=y
 CONFIG_DEFAULT_kmod-nf-nathelper=y
 CONFIG_DEFAULT_kmod-nf-nathelper-extra=y
-CONFIG_DEFAULT_kmod-phy-aquantia=y
-CONFIG_DEFAULT_kmod-phy-marvell=y
-CONFIG_DEFAULT_kmod-rtc-rx8025=y
-CONFIG_DEFAULT_kmod-sfp=y
-CONFIG_DEFAULT_kmod-thunderx-net=y
 CONFIG_DEFAULT_kmod-tun=y
-CONFIG_DEFAULT_kmod-vmxnet3=y
 CONFIG_DEFAULT_libc=y
 CONFIG_DEFAULT_libgcc=y
 CONFIG_DEFAULT_libustream-openssl=y
@@ -119,35 +120,36 @@ CONFIG_DEFAULT_luci-app-vlmcsd=y
 CONFIG_DEFAULT_luci-app-vsftpd=y
 CONFIG_DEFAULT_luci-app-wol=y
 CONFIG_DEFAULT_luci-newapi=y
-CONFIG_DEFAULT_mkf2fs=y
+CONFIG_DEFAULT_mt7986-wo-firmware=y
 CONFIG_DEFAULT_mtd=y
 CONFIG_DEFAULT_netifd=y
 CONFIG_DEFAULT_opkg=y
-CONFIG_DEFAULT_partx-utils=y
 CONFIG_DEFAULT_ppp=y
 CONFIG_DEFAULT_ppp-mod-pppoe=y
 CONFIG_DEFAULT_procd=y
 CONFIG_DEFAULT_procd-ujail=y
+CONFIG_DEFAULT_uboot-envtools=y
 CONFIG_DEFAULT_uci=y
 CONFIG_DEFAULT_uclient-fetch=y
 CONFIG_DEFAULT_urandom-seed=y
 CONFIG_DEFAULT_urngd=y
+CONFIG_DEFAULT_wpad-openssl=y
 CONFIG_HAS_FPU=y
+CONFIG_HAS_DT_OVERLAY_SUPPORT=y
 CONFIG_AUDIO_SUPPORT=y
+CONFIG_GPIO_SUPPORT=y
 CONFIG_PCI_SUPPORT=y
 CONFIG_PCIE_SUPPORT=y
 CONFIG_USB_SUPPORT=y
 CONFIG_RTC_SUPPORT=y
 CONFIG_USES_DEVICETREE=y
 CONFIG_USES_INITRAMFS=y
+CONFIG_USES_SEPARATE_INITRAMFS=y
 CONFIG_USES_SQUASHFS=y
-CONFIG_USES_EXT4=y
-CONFIG_USES_TARGZ=y
-CONFIG_USES_CPIOGZ=y
+CONFIG_EMMC_SUPPORT=y
+CONFIG_NAND_SUPPORT=y
 CONFIG_ARCH_64BIT=y
-CONFIG_VIRTIO_SUPPORT=y
 CONFIG_USES_ROOTFS_PART=y
-CONFIG_USES_BOOT_PART=y
 CONFIG_aarch64=y
 CONFIG_ARCH="aarch64"
 
